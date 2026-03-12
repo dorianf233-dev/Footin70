@@ -12,7 +12,6 @@
     --blue-light:  #2255a0;
     --blue-dark:   #0f2347;
     --blue-faint:  #e8eef8;
-    --pitch:       #0f2347;
     --red:         #e02020;
     --red-dark:    #b01515;
     --red-faint:   #fdeaea;
@@ -23,244 +22,97 @@
     --white:       #ffffff;
     --shadow:      0 2px 12px rgba(0,0,0,0.08);
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
-  body {
-    font-family: 'Barlow', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-  }
-
-  /* ── HEADER ── */
-  header {
-    background: linear-gradient(135deg, #0a1830 0%, #1a3a6b 50%, #0a1830 100%);
-    position: relative;
-    overflow: hidden;
-  }
-  .pitch-lines {
-    position: absolute; inset: 0; opacity: 0.06;
-    background-image:
-      repeating-linear-gradient(90deg, white 0px, white 1px, transparent 1px, transparent 60px),
-      repeating-linear-gradient(0deg, white 0px, white 1px, transparent 1px, transparent 60px);
-  }
-  .header-inner {
-    position: relative; z-index: 1;
-    text-align: center;
-    padding: 2.5rem 1.5rem 2rem;
-    border-bottom: 3px solid var(--red);
-  }
-  .site-logo {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 3.5rem; font-weight: 800;
-    letter-spacing: 0.05em; color: white; line-height: 1;
-  }
+  header { background: linear-gradient(135deg, #0a1830 0%, #1a3a6b 50%, #0a1830 100%); position: relative; overflow: hidden; }
+  .pitch-lines { position: absolute; inset: 0; opacity: 0.06; background-image: repeating-linear-gradient(90deg, white 0px, white 1px, transparent 1px, transparent 60px), repeating-linear-gradient(0deg, white 0px, white 1px, transparent 1px, transparent 60px); }
+  .header-inner { position: relative; z-index: 1; text-align: center; padding: 2.5rem 1.5rem 2rem; border-bottom: 3px solid var(--red); }
+  .site-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 3.5rem; font-weight: 800; letter-spacing: 0.05em; color: white; line-height: 1; }
   .site-logo span { color: var(--red); }
-  .site-tagline {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.1rem; font-weight: 600;
-    letter-spacing: 0.3em; text-transform: uppercase;
-    color: rgba(255,255,255,0.65); margin-top: 6px;
-  }
-  .site-adresse {
-    font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-top: 10px;
-  }
-  .header-badges {
-    display: flex; justify-content: center; gap: 1.5rem;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.8rem; color: rgba(255,255,255,0.75);
-    flex-wrap: wrap;
-    background: rgba(0,0,0,0.2);
-  }
+  .site-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-top: 6px; }
+  .site-adresse { font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-top: 10px; }
+  .header-badges { display: flex; justify-content: center; gap: 1.5rem; padding: 0.75rem 1.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.75); flex-wrap: wrap; background: rgba(0,0,0,0.2); }
 
-  /* ── LAYOUT ── */
   .container { max-width: 960px; margin: 0 auto; padding: 1.5rem; }
-
-  /* ── INFO CARDS ── */
   .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
   @media (max-width: 620px) { .info-grid { grid-template-columns: 1fr; } }
 
-  .card {
-    background: var(--white);
-    border-radius: 15px; padding: 1.5rem;
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow); color: var(--text);
-  }
-  .card h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.5rem; font-weight: 700;
-    margin-bottom: 1rem;
-    border-bottom: 3px solid var(--red);
-    padding-bottom: 0.5rem;
-    color: var(--blue-dark);
-  }
+  .card { background: var(--white); border-radius: 15px; padding: 1.5rem; border: 1px solid var(--border); box-shadow: var(--shadow); color: var(--text); }
+  .card h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 3px solid var(--red); padding-bottom: 0.5rem; color: var(--blue-dark); }
 
-  .horaire-item {
-    display: flex; justify-content: space-between;
-    padding: 12px 15px; margin-bottom: 8px;
-    background: var(--bg); border-radius: 8px;
-    font-size: 0.9rem;
-  }
+  .horaire-item { display: flex; justify-content: space-between; padding: 12px 15px; margin-bottom: 8px; background: var(--bg); border-radius: 8px; font-size: 0.9rem; }
   .horaire-item.weekend { background: var(--red-faint); border-left: 4px solid var(--red); }
   .horaire-item strong { color: var(--blue-dark); }
 
-  .tarif-item {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 12px 15px; margin-bottom: 8px;
-    background: linear-gradient(135deg, var(--blue-dark), var(--blue));
-    color: white; border: 2px solid var(--red);
-    border-radius: 8px; font-size: 0.9rem;
-  }
+  .tarif-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; margin-bottom: 8px; background: linear-gradient(135deg, var(--blue-dark), var(--blue)); color: white; border: 2px solid var(--red); border-radius: 8px; font-size: 0.9rem; }
   .prix { font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--red); }
-
-  .infos-box {
-    margin-top: 12px; padding: 14px 15px;
-    background: var(--bg); border-radius: 8px;
-    font-size: 0.85rem; line-height: 1.8;
-    color: var(--text-muted);
-  }
+  .infos-box { margin-top: 12px; padding: 14px 15px; background: var(--bg); border-radius: 8px; font-size: 0.85rem; line-height: 1.8; color: var(--text-muted); }
   .infos-box strong { color: var(--blue-dark); }
+  .note { background: rgba(224,32,32,0.1); border: 2px solid var(--red); padding: 12px 15px; border-radius: 8px; margin-top: 12px; text-align: center; font-weight: bold; font-size: 0.85rem; color: var(--red-dark); }
 
-  .note {
-    background: rgba(224, 32, 32, 0.1);
-    border: 2px solid var(--red);
-    padding: 12px 15px; border-radius: 8px;
-    margin-top: 12px; text-align: center;
-    font-weight: bold; font-size: 0.85rem;
-    color: var(--red-dark);
-  }
+  .reservation-section { background: var(--white); border-radius: 15px; padding: 1.5rem; border: 1px solid var(--border); box-shadow: var(--shadow); color: var(--text); }
+  .reservation-section h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.8rem; font-weight: 700; text-align: center; margin-bottom: 1.5rem; border-bottom: 3px solid var(--red); padding-bottom: 0.75rem; color: var(--blue-dark); }
 
-  /* ── RÉSERVATION ── */
-  .reservation-section {
-    background: var(--white);
-    border-radius: 15px; padding: 1.5rem;
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow); color: var(--text);
-  }
-  .reservation-section h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.8rem; font-weight: 700;
-    text-align: center; margin-bottom: 1.5rem;
-    border-bottom: 3px solid var(--red);
-    padding-bottom: 0.75rem;
-    color: var(--blue-dark);
-  }
-
-  .calendrier-container {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
-  }
+  .calendrier-container { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
   @media (max-width: 760px) { .calendrier-container { grid-template-columns: 1fr; } }
 
-  .calendrier-box {
-    background: var(--bg); padding: 1.25rem; border-radius: 12px;
-  }
-
-  .cal-header {
-    display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 1rem;
-  }
-  .cal-btn {
-    background: var(--blue-dark); color: white; border: none;
-    padding: 8px 14px; border-radius: 8px; cursor: pointer;
-    font-weight: bold; font-size: 0.9rem; transition: background 0.15s;
-  }
+  .calendrier-box { background: var(--bg); padding: 1.25rem; border-radius: 12px; }
+  .cal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+  .cal-btn { background: var(--blue-dark); color: white; border: none; padding: 8px 14px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 0.9rem; transition: background 0.15s; }
   .cal-btn:hover { background: var(--red); }
-  .cal-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.3rem; font-weight: 700; color: var(--blue-dark);
-  }
+  .cal-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--blue-dark); }
 
-  .jours-semaine {
-    display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin-bottom: 8px;
-  }
-  .jour-header {
-    text-align: center; font-weight: bold; font-size: 0.8rem;
-    color: var(--text-muted); padding: 6px 0;
-  }
+  .jours-semaine { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin-bottom: 8px; }
+  .jour-header { text-align: center; font-weight: bold; font-size: 0.8rem; color: var(--text-muted); padding: 6px 0; }
   .calendrier-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
-  .jour-cell {
-    aspect-ratio: 1; border: none; border-radius: 8px;
-    font-weight: bold; cursor: pointer; font-size: 0.85rem;
-    background: #dde4f0; color: var(--blue-dark);
-    transition: all 0.15s;
-  }
+  .jour-cell { aspect-ratio: 1; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.85rem; background: #dde4f0; color: var(--blue-dark); transition: all 0.15s; }
   .jour-cell:hover:not(:disabled) { background: var(--red-faint); transform: scale(1.1); }
   .jour-cell.selected { background: var(--red); color: white; transform: scale(1.15); }
   .jour-cell.today { background: var(--blue-dark); color: white; }
   .jour-cell:disabled { background: transparent; cursor: default; }
 
-  .placeholder {
-    text-align: center; padding: 3rem 1rem; color: var(--text-muted);
-  }
+  .placeholder { text-align: center; padding: 3rem 1rem; color: var(--text-muted); }
   .placeholder h3 { font-size: 1.1rem; margin-bottom: 6px; color: var(--blue-dark); }
 
-  table {
-    width: 100%; border-collapse: collapse;
-    background: white; border-radius: 10px; overflow: hidden;
-  }
+  table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; }
   thead { background: var(--blue); color: white; }
   th, td { padding: 10px 12px; text-align: center; font-size: 0.875rem; }
   th:first-child, td:first-child { text-align: left; }
   tbody tr:nth-child(even) { background: var(--bg); }
 
-  .btn-creneau {
-    width: 100%; padding: 9px; border: none;
-    border-radius: 8px; font-weight: bold; cursor: pointer;
-    font-size: 0.82rem; transition: background 0.15s;
-  }
+  .btn-creneau { width: 100%; padding: 9px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.82rem; transition: background 0.15s; }
   .btn-libre { background: var(--blue-light); color: white; }
   .btn-libre:hover { background: var(--blue-dark); }
   .btn-reserve { background: var(--red); color: white; cursor: default; }
-
-  .btn-suppr {
-    width: 100%; margin-top: 5px; padding: 5px;
-    background: var(--red-dark); color: white; border: none;
-    border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.78rem;
-    transition: background 0.15s;
-  }
+  .btn-suppr { width: 100%; margin-top: 5px; padding: 5px; background: var(--red-dark); color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.78rem; transition: background 0.15s; }
   .btn-suppr:hover { background: #8a0f0f; }
 
-  /* ── MODAL ── */
-  .modal {
-    display: none; position: fixed; inset: 0;
-    background: rgba(0,0,0,0.65); z-index: 1000;
-  }
+  .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 1000; }
   .modal.active { display: flex; justify-content: center; align-items: center; }
-  .modal-content {
-    background: white; padding: 2rem; border-radius: 15px;
-    max-width: 480px; width: 90%; box-shadow: 0 8px 40px rgba(0,0,0,0.25);
-  }
-  .modal-content h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.5rem; font-weight: 700; color: var(--blue-dark); margin-bottom: 1rem;
-  }
-  .modal-info {
-    background: var(--blue-dark); color: white;
-    padding: 12px 15px; border-radius: 8px; margin-bottom: 1rem; font-size: 0.875rem;
-  }
+  .modal-content { background: white; padding: 2rem; border-radius: 15px; max-width: 480px; width: 90%; box-shadow: 0 8px 40px rgba(0,0,0,0.25); }
+  .modal-content h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--blue-dark); margin-bottom: 1rem; }
+  .modal-info { background: var(--blue-dark); color: white; padding: 12px 15px; border-radius: 8px; margin-bottom: 1rem; font-size: 0.875rem; }
   .modal-info p { margin-bottom: 4px; }
   .form-group { margin-bottom: 12px; }
   .form-group label { display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 4px; color: var(--blue-dark); }
-  .form-group input {
-    width: 100%; padding: 10px; font-size: 0.95rem;
-    border: 2px solid var(--border); border-radius: 8px; outline: none;
-    font-family: 'Barlow', sans-serif; transition: border-color 0.15s;
-  }
+  .form-group input { width: 100%; padding: 10px; font-size: 0.95rem; border: 2px solid var(--border); border-radius: 8px; outline: none; font-family: 'Barlow', sans-serif; transition: border-color 0.15s; }
   .form-group input:focus { border-color: var(--blue-light); }
   .modal-btns { display: flex; gap: 12px; margin-top: 1rem; }
-  .btn-modal {
-    flex: 1; padding: 11px; border: none; border-radius: 8px;
-    font-weight: bold; cursor: pointer; font-size: 0.95rem;
-    font-family: 'Barlow', sans-serif; transition: background 0.15s;
-  }
+  .btn-modal { flex: 1; padding: 11px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.95rem; font-family: 'Barlow', sans-serif; transition: background 0.15s; }
   .btn-annuler { background: #e2e8f0; color: var(--text-muted); }
   .btn-annuler:hover { background: #cdd5e5; }
   .btn-confirmer { background: var(--red); color: white; }
   .btn-confirmer:hover { background: var(--red-dark); }
+
+  #statusBar { display: none; text-align: center; padding: 10px; font-size: 0.85rem; font-weight: 600; }
+  #statusBar.ok { background: #e8f5e9; color: #2e7d32; display: block; }
+  #statusBar.err { background: var(--red-faint); color: var(--red-dark); display: block; }
 </style>
 </head>
 <body>
+
+<div id="statusBar"></div>
 
 <header>
   <div class="pitch-lines"></div>
@@ -277,7 +129,6 @@
 </header>
 
 <div class="container">
-
   <div class="info-grid" style="margin-top:1.5rem;">
     <div class="card">
       <h2>🕐 Horaires</h2>
@@ -290,7 +141,6 @@
       <div class="horaire-item weekend"><strong>Dimanche</strong><span>09h00 - 23h00</span></div>
       <p style="font-style:italic;margin-top:12px;font-size:0.82rem;color:var(--text-muted);">💡 Horaires modulables</p>
     </div>
-
     <div class="card">
       <h2>💰 Tarifs</h2>
       <div class="tarif-item"><span>Heures creuses</span><span class="prix">7€/h</span></div>
@@ -298,12 +148,7 @@
       <div class="tarif-item"><span>Tarif enfants (-15 ans)</span><span class="prix">6€/h</span></div>
       <div class="tarif-item"><span>Forfait groupes (15 joueurs)</span><span class="prix">90€/h</span></div>
       <div class="tarif-item"><span>Forfait week-end 2h</span><span class="prix">12€</span></div>
-      <div class="infos-box">
-        <strong>📍 Informations :</strong><br>
-        ✓ 2 terrains disponibles<br>
-        ✓ Vestiaires &amp; douches<br>
-        ✓ Parking gratuit
-      </div>
+      <div class="infos-box"><strong>📍 Informations :</strong><br>✓ 2 terrains disponibles<br>✓ Vestiaires &amp; douches<br>✓ Parking gratuit</div>
       <div class="note">⚠️ L'établissement décline toute responsabilité en cas de perte ou de vol !</div>
     </div>
   </div>
@@ -318,20 +163,18 @@
           <button class="cal-btn" onclick="changerMois(1)">►</button>
         </div>
         <div class="jours-semaine">
-          <div class="jour-header">Lun</div>
-          <div class="jour-header">Mar</div>
-          <div class="jour-header">Mer</div>
-          <div class="jour-header">Jeu</div>
-          <div class="jour-header">Ven</div>
-          <div class="jour-header">Sam</div>
+          <div class="jour-header">Lun</div><div class="jour-header">Mar</div>
+          <div class="jour-header">Mer</div><div class="jour-header">Jeu</div>
+          <div class="jour-header">Ven</div><div class="jour-header">Sam</div>
           <div class="jour-header">Dim</div>
         </div>
         <div class="calendrier-grid" id="calendrierGrid"></div>
       </div>
-      <div id="reservationBox"></div>
+      <div id="reservationBox">
+        <div class="placeholder"><h3>Sélectionnez une date</h3><p>Cliquez sur un jour du calendrier</p></div>
+      </div>
     </div>
   </div>
-
 </div>
 
 <div class="modal" id="modalReservation">
@@ -340,15 +183,15 @@
     <div class="modal-info" id="modalInfo"></div>
     <form id="formReservation" onsubmit="event.preventDefault(); confirmerReservation();">
       <div class="form-group">
-        <label for="inputNom">Nom complet *</label>
+        <label>Nom complet *</label>
         <input type="text" id="inputNom" placeholder="Votre nom" required>
       </div>
       <div class="form-group">
-        <label for="inputTel">Téléphone *</label>
+        <label>Téléphone *</label>
         <input type="tel" id="inputTel" placeholder="06 12 34 56 78" required>
       </div>
       <div class="form-group">
-        <label for="inputPersonnes">Nombre de personnes *</label>
+        <label>Nombre de personnes *</label>
         <input type="number" id="inputPersonnes" placeholder="Ex: 10" min="1" max="30" required>
       </div>
       <div class="modal-btns">
@@ -359,13 +202,61 @@
   </div>
 </div>
 
-<script>
-  const STORAGE_KEY = 'footin70_reservations_v2';
-  let dateSelectionnee = null;
-  let reservations = {};
-  let dateActuelle = new Date();
+<script type="module">
+  import { initializeApp }                              from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getFirestore, doc, getDoc, setDoc }          from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-  const moisNoms = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+  const firebaseConfig = {
+    apiKey:            "AIzaSyDArrCfqt-2vE_Bj09clNkNAOZefZb4mTw",
+    authDomain:        "footin70-90525.firebaseapp.com",
+    projectId:         "footin70-90525",
+    storageBucket:     "footin70-90525.firebasestorage.app",
+    messagingSenderId: "650008439915",
+    appId:             "1:650008439915:web:6fc7af966472da372a552e"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db  = getFirestore(app);
+  const REF = doc(db, "footin70", "reservations");
+
+  const statusBar = document.getElementById('statusBar');
+
+  async function chargerReservations() {
+    try {
+      const snap = await getDoc(REF);
+      window.reservations = snap.exists() ? (snap.data().data || {}) : {};
+      statusBar.className = 'ok';
+      statusBar.textContent = '✅ Réservations chargées';
+      setTimeout(() => { statusBar.style.display = 'none'; }, 3000);
+    } catch(e) {
+      window.reservations = {};
+      statusBar.className = 'err';
+      statusBar.textContent = '⚠️ Erreur de connexion Firebase — active Firestore dans la console Firebase';
+      console.error(e);
+    }
+  }
+
+  window.sauvegarderReservations = async function() {
+    try {
+      await setDoc(REF, { data: window.reservations });
+    } catch(e) {
+      alert('❌ Erreur de sauvegarde Firebase.');
+      console.error(e);
+    }
+  };
+
+  await chargerReservations();
+  genererCalendrier();
+  afficherReservations();
+</script>
+
+<script>
+  window.reservations  = {};
+
+  let dateSelectionnee = null;
+  let dateActuelle     = new Date();
+
+  const moisNoms  = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
   const joursNoms = ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
 
   const horairesParJour = {
@@ -378,27 +269,15 @@
     0: ['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00','22:00']
   };
 
-  async function chargerReservations() {
-    try {
-      const result = await window.storage.get(STORAGE_KEY, true);
-      reservations = result && result.value ? JSON.parse(result.value) : {};
-    } catch(e) { reservations = {}; }
-  }
-
-  async function sauvegarderReservations() {
-    try { await window.storage.set(STORAGE_KEY, JSON.stringify(reservations), true); }
-    catch(e) { console.error('Erreur sauvegarde', e); }
-  }
-
   function genererCalendrier() {
     const grid = document.getElementById('calendrierGrid');
     grid.innerHTML = '';
     const annee = dateActuelle.getFullYear();
-    const mois = dateActuelle.getMonth();
+    const mois  = dateActuelle.getMonth();
     document.getElementById('moisAnnee').textContent = moisNoms[mois] + ' ' + annee;
     const premierJour = new Date(annee, mois, 1);
-    const nbJours = new Date(annee, mois + 1, 0).getDate();
-    const jourDebut = (premierJour.getDay() + 6) % 7;
+    const nbJours     = new Date(annee, mois + 1, 0).getDate();
+    const jourDebut   = (premierJour.getDay() + 6) % 7;
     for (let i = 0; i < jourDebut; i++) {
       const c = document.createElement('button'); c.className = 'jour-cell'; c.disabled = true; grid.appendChild(c);
     }
@@ -408,9 +287,9 @@
       const cell = document.createElement('button');
       cell.className = 'jour-cell';
       cell.textContent = jour;
-      cell.onclick = function() { selectionnerDate(dateStr); };
-      if (dateStr === dateSelectionnee) cell.classList.add('selected');
-      else if (dateStr === aujourd) cell.classList.add('today');
+      cell.onclick = () => selectionnerDate(dateStr);
+      if (dateStr === dateSelectionnee)  cell.classList.add('selected');
+      else if (dateStr === aujourd)      cell.classList.add('today');
       grid.appendChild(cell);
     }
   }
@@ -432,18 +311,18 @@
       box.innerHTML = '<div class="placeholder"><h3>Sélectionnez une date</h3><p>Cliquez sur un jour du calendrier</p></div>';
       return;
     }
-    const date = new Date(dateSelectionnee + 'T12:00:00');
+    const date        = new Date(dateSelectionnee + 'T12:00:00');
     const jourSemaine = date.getDay();
-    const heures = horairesParJour[jourSemaine];
+    const heures      = horairesParJour[jourSemaine];
     let html = '<div class="calendrier-box"><h3 style="margin-bottom:12px;font-family:\'Barlow Condensed\',sans-serif;font-weight:700;color:var(--blue-dark);">' + joursNoms[jourSemaine] + ' ' + dateSelectionnee + '</h3>';
     html += '<div style="max-height:500px;overflow-y:auto;"><table><thead><tr><th>Heure</th><th>Terrain 1</th><th>Terrain 2</th></tr></thead><tbody>';
-    heures.forEach(function(heure) {
+    heures.forEach(heure => {
       const h = parseInt(heure.split(':')[0]);
       const heureAff = heure === '00:00' ? '00:00-01:00' : heure + '-' + String(h+1).padStart(2,'0') + ':00';
       html += '<tr><td>' + heureAff + '</td>';
-      ['Terrain 1','Terrain 2'].forEach(function(terrain) {
-        const cle = dateSelectionnee + '-' + terrain + '-' + heure;
-        const resa = reservations[cle];
+      ['Terrain 1','Terrain 2'].forEach(terrain => {
+        const cle  = dateSelectionnee + '-' + terrain + '-' + heure;
+        const resa = window.reservations[cle];
         if (resa) {
           html += '<td><button class="btn-creneau btn-reserve"><div>RÉSERVÉ</div><div style="font-size:0.78rem;">' + resa.nom + '</div><div style="font-size:0.72rem;">' + resa.personnes + ' pers.</div></button>';
           html += '<button class="btn-suppr" onclick="supprimerResa(\'' + cle + '\')">🗑️ SUPPRIMER</button></td>';
@@ -470,19 +349,16 @@
 
   function fermerModal() {
     document.getElementById('modalReservation').classList.remove('active');
-    document.getElementById('inputNom').value = '';
-    document.getElementById('inputTel').value = '';
-    document.getElementById('inputPersonnes').value = '';
   }
 
   async function supprimerResa(cle) {
-    const resa = reservations[cle];
-    if (!resa) { alert('Réservation introuvable!'); return; }
+    const resa = window.reservations[cle];
+    if (!resa) { alert('Réservation introuvable !'); return; }
     const code = prompt('🔒 Code administrateur requis pour supprimer :');
     if (code === null) return;
     if (code === '2307') {
-      delete reservations[cle];
-      await sauvegarderReservations();
+      delete window.reservations[cle];
+      await window.sauvegarderReservations();
       afficherReservations();
       alert('✅ Réservation de ' + resa.nom + ' supprimée !');
     } else {
@@ -491,27 +367,23 @@
   }
 
   async function confirmerReservation() {
-    const nom = document.getElementById('inputNom').value;
-    const tel = document.getElementById('inputTel').value;
+    const nom       = document.getElementById('inputNom').value;
+    const tel       = document.getElementById('inputTel').value;
     const personnes = document.getElementById('inputPersonnes').value;
     if (window.resaEnCours && nom && tel && personnes) {
       const cle = dateSelectionnee + '-' + window.resaEnCours.terrain + '-' + window.resaEnCours.heure;
-      reservations[cle] = { nom, tel, personnes };
-      await sauvegarderReservations();
+      window.reservations[cle] = { nom, tel, personnes };
+      await window.sauvegarderReservations();
       fermerModal();
       afficherReservations();
       alert('✅ Réservation confirmée pour ' + nom + ' !');
     }
   }
 
-  document.getElementById('formReservation').onsubmit = function(e) {
-    e.preventDefault(); confirmerReservation();
-  };
+  document.getElementById('formReservation').onsubmit = e => { e.preventDefault(); confirmerReservation(); };
 
-  chargerReservations().then(function() {
-    genererCalendrier();
-    afficherReservations();
-  });
+  genererCalendrier();
 </script>
+
 </body>
 </html>

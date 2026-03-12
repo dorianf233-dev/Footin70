@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -614,10 +613,27 @@
 
         function supprimerResa(cle) {
             const resa = reservations[cle];
-            if (resa) {
+            if (!resa) {
+                alert('Réservation introuvable!');
+                return;
+            }
+            
+            // Demander le code PIN
+            const code = prompt('🔒 Code administrateur requis pour supprimer :');
+            
+            if (code === null) {
+                // Utilisateur a annulé
+                return;
+            }
+            
+            if (code === '2307') {
+                // Code correct
                 delete reservations[cle];
                 afficherReservations();
                 alert('✅ Réservation de ' + resa.nom + ' supprimée !');
+            } else {
+                // Code incorrect
+                alert('❌ Code incorrect ! Suppression refusée.');
             }
         }
 

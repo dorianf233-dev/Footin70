@@ -123,6 +123,7 @@
   </div>
   <div class="header-badges">
     <span>⚽ 2 terrains disponibles</span>
+    <span>🫧 Foot en bulle disponible</span>
     <span>🚿 Vestiaires &amp; douches</span>
     <span>🅿️ Parking gratuit</span>
   </div>
@@ -148,6 +149,7 @@
       <div class="tarif-item"><span>Tarif enfants (-15 ans)</span><span class="prix">6€/h</span></div>
       <div class="tarif-item"><span>Forfait groupes (15 joueurs)</span><span class="prix">90€/h</span></div>
       <div class="tarif-item"><span>Forfait week-end 2h</span><span class="prix">12€</span></div>
+      <div class="tarif-item"><span>⚽ Foot en bulle</span><span class="prix">10€/h</span></div>
       <div class="infos-box"><strong>📍 Informations :</strong><br>✓ 2 terrains disponibles<br>✓ Vestiaires &amp; douches<br>✓ Parking gratuit</div>
       <div class="note">⚠️ L'établissement décline toute responsabilité en cas de perte ou de vol !</div>
     </div>
@@ -315,16 +317,16 @@
     const jourSemaine = date.getDay();
     const heures      = horairesParJour[jourSemaine];
     let html = '<div class="calendrier-box"><h3 style="margin-bottom:12px;font-family:\'Barlow Condensed\',sans-serif;font-weight:700;color:var(--blue-dark);">' + joursNoms[jourSemaine] + ' ' + dateSelectionnee + '</h3>';
-    html += '<div style="max-height:500px;overflow-y:auto;"><table><thead><tr><th>Heure</th><th>Terrain 1</th><th>Terrain 2</th></tr></thead><tbody>';
+    html += '<div style="max-height:500px;overflow-y:auto;"><table><thead><tr><th>Heure</th><th>Terrain 1</th><th>Terrain 2</th><th>Foot en bulle</th></tr></thead><tbody>';
     heures.forEach(heure => {
       const h = parseInt(heure.split(':')[0]);
       const heureAff = heure === '00:00' ? '00:00-01:00' : heure + '-' + String(h+1).padStart(2,'0') + ':00';
       html += '<tr><td>' + heureAff + '</td>';
-      ['Terrain 1','Terrain 2'].forEach(terrain => {
+      ['Terrain 1','Terrain 2','Foot en bulle'].forEach(terrain => {
         const cle  = dateSelectionnee + '-' + terrain + '-' + heure;
         const resa = window.reservations[cle];
         if (resa) {
-          html += '<td><button class="btn-creneau btn-reserve"><div>RÉSERVÉ</div><div style="font-size:0.78rem;">' + resa.nom + '</div><div style="font-size:0.72rem;">' + resa.personnes + ' pers.</div></button>';
+          html += '<td><button class="btn-creneau btn-reserve"><div>RÉSERVÉ</div><div style="font-size:0.78rem;">' + resa.nom + '</div><div style="font-size:0.72rem;">' + resa.personnes + ' pers.</div><div style="font-size:0.72rem;">📞 ' + resa.tel + '</div></button>';
           html += '<button class="btn-suppr" onclick="supprimerResa(\'' + cle + '\')">🗑️ SUPPRIMER</button></td>';
         } else {
           html += '<td><button class="btn-creneau btn-libre" onclick="ouvrirModal(\'' + terrain + '\',\'' + heure + '\')">LIBRE</button></td>';
